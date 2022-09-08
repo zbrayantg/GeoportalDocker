@@ -1,0 +1,24 @@
+.h-20em{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.user-error-alert{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: alertTimeOut 5s forwards;
+    -webkit-animation: alertTimeOut 5s forwards;
+}
+
+@keyframes alertTimeOut {
+    0%  {opacity: 1;}
+    85% {opacity: 1;}
+    100%    {opacity: 0;}
+}
+@-webkit-keyframes alertTimeOut {
+    0%  {opacity: 1;}
+    85% {opacity: 1;}
+    100%    {opacity: 0;}
+}

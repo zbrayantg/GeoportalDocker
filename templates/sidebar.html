@@ -1,0 +1,60 @@
+{% load static %}
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-end justify-content-center p-0" {% if user.is_authenticated %} href="{% url 'BIF:Home' %}" {% endif %}>
+        <div class="sidebar-brand-icon">
+            <!-- <i class="fas fa-laugh-wink"></i> -->
+            <img class="h-4em" src="{% static 'img/logo-bif-blanco.svg' %}" alt="">
+        </div>
+        <div class="sidebar-brand-text transform-none ml-1 fs-0-7rem">
+            <span class="letter-spacing-0 d-block font-weight-normal">Banco Inmobiliario de</span>
+            <span class="letter-spacing-03 d-block lh-1 pb-15">Floridablanca </span>
+        </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!--Nav Item - Update Collapse Menu -->
+    <!--<li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Actualizar</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Opciones:</h6>
+                <a class="collapse-item" href="#">Registro</a>
+                <a class="collapse-item" href="#">Ubicación</a>
+            </div>
+        </div>
+    </li> -->
+
+    <!-- Nav Item - Report -->
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'BIF:reporte' %}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Reporte</span></a>
+        </li>
+    {% endif %}
+    <!-- Nav Item - Map -->
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'BIF:mapa' %}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Mapa</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>
+<!-- End of Sidebar -->

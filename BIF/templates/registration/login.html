@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{%load static%}
+
+{% block title %}BIF{% endblock %}
+{% block styles %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% comment %} <link href="{% static 'vendor/leaflet/leaflet.css' %}" rel="stylesheet">
+<script src="{% static 'vendor/leaflet/leaflet.js' %}"></script> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        
+                        <div class="col-lg-6 d-flex align-items-center justify-content-center bg-login-image">
+                            <!-- Sidebar - Brand -->
+                            <div class="sidebar-brand-icon">
+                                {% if form.errors %}
+                                    <div class="alert alert-danger user-error-alert" role="alert">
+                                        Su usuario y contraseña con coinciden. Por favor intentalo de nuevo.
+                                    </div>
+                                {% endif %} {% if next %} {% if user.is_authenticated %}
+                                    <div class="alert alert-warning user-error-alert" role="alert">
+                                        Tu cuenta no tiene acceso a esta página. Para proceder, por favor ingresa con una cuenta que tenga el acceso.
+                                    </div>
+                                {% else %}
+                                <div class="alert alert-success user-error-alert" role="alert">
+                                    Por favor ingrese para ver esta página
+                                </div>
+                                {% endif %} {% endif %}
+                                <img class="h-20em" src="{% static 'img/logo-bif-blanco-large.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
+                                </div>
+                                <form class="user" method="post" class="row g-3 text-center" action="{% url 'login' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="id_username" placeholder="Usuario" class="form-control form-control-user">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="id_password" class="form-control form-control-user" placeholder="Contraseña" autocomplete="off">
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Mantener sesión iniciada</label>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-user btn-block" type="submit" value="Ingresar" role="button">Ingresar</button>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="#">Olvidaste la contraseña?</a>
+                                </div>
+                                <!--<div class="text-center">
+                                    <a class="small" href="register.html">Create an Account!</a>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+{% block scripts %}
+<!--<script src="{% static 'js/poligonos.js' %}" ></script>-->
+
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}" ></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}" ></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'js/sb-admin-2.min.js' %}" ></script>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{%load static%}
+
+{% block title %}BIF{% endblock %}
+{% block styles %}
+<link href="{% static 'vendor/leaflet/leaflet.css' %}" rel="stylesheet">
+<link href="{% static 'css/mapa.css' %}" rel="stylesheet">
+<script src="{% static 'vendor/leaflet/leaflet.js' %}"></script>
+{% endblock %}
+{% block sidebar %}
+    {% include "sidebar.html" %}       
+{% endblock sidebar %}
+
+{% block nav %}
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <!-- Topbar Search -->
+        <form action="" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
+                    aria-label="Search" aria-describedby="basic-addon2" pattern=".*\S.*" name="search" {% if search %}value="{{search}}"{% endif %}>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!-- End Topbar Search -->
+
+        <!-- Navbar -->
+        {% include "navbar.html" %}
+    </nav>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <!-- Content Row -->
+    <div class="row mt-3">
+
+        <!-- Content Column -->
+        <div class="col-lg-12">
+
+            <!-- Project Card Example -->
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Servicio del BIF</h6>
+                </div>
+                <div class="card-body">
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+        <input type="hidden" value="{{inmuebles}}" id="data_to_map"> 
+    </div>
+
+    <!--<div class="">
+        <table>
+            <thead>
+                <tr>
+                    <th>Predial</td>
+                    <th>Coordenadas</td>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+            </tbody>
+        </table>
+    </div>-->
+
+{% endblock %}
+{% block scripts %}
+<!--<script src="{% static 'js/poligonos.js' %}" ></script>-->
+<script src="{% static 'js/mapa.js' %}" ></script>
+{% endblock %}

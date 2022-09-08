@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BIF{% endblock %}
+{% block styles %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+{% endblock %}
+{% block sidebar %}
+    {% include "sidebar.html" %}       
+{% endblock sidebar %}
+{% block nav %}
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    {% include "navbar.html" %}
+</nav>
+{% endblock %}
+
+{% block content %}
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Content Column -->
+        <div class="col-lg-12 mb-4">
+
+            <!-- Project Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Bienvenid@ al BIF</h6>
+                </div>
+                <div class="card-body">
+                    <p class="text-center m-0">
+                        En esta plataforma se dispone la información que gestiona y administra el Banco Inmobiliario de Floridablanca - <b>BIF</b>
+                        <br>
+                        <b>Para iniciar</b>, seleccione la opción de su interés en el menú
+                    </p>
+                    <p class="text-center m-0"><i class="fas fa-arrow-left animated text-dark"></i></p>
+                </div>
+            </div>
+
+           
+
+        </div>
+
+        
+    </div>
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

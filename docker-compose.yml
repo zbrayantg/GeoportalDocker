@@ -1,0 +1,13 @@
+version: "3.9"
+   
+services:
+  bif:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=django-insecure-@m-lh=)*@e)h_&z=g88s%q(4u@s=e-_le@77*0rr)lw2=+22kx
+      - DEBUG=True
