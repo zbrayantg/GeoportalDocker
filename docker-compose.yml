@@ -1,13 +1,12 @@
 version: "2.2"
    
 services:
-  bif:
-    build: .
+  web:
+    build: ./app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./app/:/usr/src/app/
     ports:
-      - "8000:8000"
-    environment:
-      - SECRET_KEY=django-insecure-@m-lh=)*@e)h_&z=g88s%q(4u@s=e-_le@77*0rr)lw2=+22kx
-      - DEBUG=True
+      - 8000:8000
+    env_file:
+      - ./.env.dev

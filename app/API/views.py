@@ -4,6 +4,7 @@ from rest_framework.parsers import JSONParser
 from BIF.models import Property, Status, Licence, Occupancy
 from API.serializers import PropertySerializer
 
+
 @csrf_exempt
 def property_list(request):
     """
