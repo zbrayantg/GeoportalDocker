@@ -15,4 +15,4 @@
 
 #python manage.py migrate
 echo "Starting server ..."
-#exec "$@"
+exec "$@"
